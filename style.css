@@ -1,0 +1,272 @@
+html, body
+{
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#header
+{
+    height: 60px;
+    min-width: 300px;
+    background-image: linear-gradient(top, black, black 80%, transparent 80%, transparent 100%);
+    background-image: -webkit-linear-gradient(top, black, black 80%, transparent 80%, transparent 100%);
+    content: url(imgs/logo_hover.svg) url(imgs/faq_hover.svg) url(imgs/copy_hover.svg);
+}
+
+#body_centered
+{
+    flex-grow: 1;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    min-width: 300px;
+    justify-content: center;
+    padding: 10px;
+}
+
+#body_show
+{
+    flex-grow: 1;
+    min-height: 200px;
+    display: flex;
+    min-width: 300px;
+    justify-content: center;
+    padding: 10px;
+}
+
+#faq
+{
+    float: right;
+    height: 100%;
+}
+
+#faq_svg, #logo_svg
+{
+    cursor: pointer;
+    height: 100%;
+}
+
+#logo
+{
+    float: left;
+    height: 100%;
+}
+
+#warning_checkbox
+{
+    outline: 0;
+    margin-right: 6px;
+}
+
+#warning_label
+{
+    border-bottom: 1px dotted black;
+}
+
+#tooltip
+{
+    position: relative;
+    cursor: default;
+}
+
+#tooltip_text
+{
+    visibility: hidden;
+    width: 220px;
+    background-color: #000000;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 5px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -110px;
+}
+
+#tooltip_text::after
+{
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #000000 transparent transparent transparent;
+}
+
+#footer
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#drop_zone
+{
+    height: 100px;
+    border: 2px dashed #AAAAAA;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#drop_zone_drag
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 6px;
+}
+
+#drop_zone_text
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#container_index
+{
+    width: 30%;
+    min-width: 300px;
+}
+
+#select_file
+{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000099;
+    cursor: pointer;
+}
+
+#select_file:hover
+{
+    color: #66CCFF;
+}
+
+#drag_file
+{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 5px;
+}
+
+#options
+{
+    display: inline-block;
+}
+
+#description
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    color: #555555;
+    padding: 0 25px 25px 25px;
+    min-width: 250px;
+}
+
+#progress
+{
+    height: 110px;
+    width: 110px;
+}
+
+#upload_cancel
+{
+    pointer-events: bounding-box;
+    cursor: pointer;
+}
+
+#status
+{
+    top: 3px;
+    left: 50%;
+    position: absolute;
+    display: inline-block;
+    color: #000000;
+}
+
+#input_file
+{
+    display: none;
+}
+
+#link
+{
+    border: 1px solid #000000;
+    border-right-style: none;
+    padding: 3px 6px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+#copy
+{
+    cursor: pointer;
+    border: 1px solid #000000;
+    height: 28px;
+    width: 28px;
+}
+
+#warn_text
+{
+    margin-bottom: 16px;
+}
+
+#warn_yes
+{
+    display: inline;
+    float: left;
+    cursor: pointer;
+    padding: 1px 4px;
+    border: 1px solid #000000;
+    border-radius: 3px;
+}
+
+#warn_no
+{
+    display: inline;
+    float: right;
+    cursor: pointer;
+    padding: 1px 4px;
+    border: 1px solid #000000;
+    border-radius: 3px;
+}
+
+#warn_yes:hover, #warn_no:hover
+{
+    color: #FFFFFF;
+    background-color: #000000;
+}
+
+#image
+{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+#body_faq
+{
+    max-width: 800px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    min-width: 300px;
+}
+
+.invisible
+{
+    display: none;
+}

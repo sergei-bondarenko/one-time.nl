@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="one-time, temporary, disposable,
+            encrypted, image, hosting, imagehosting">
+        <meta name="description" content="Disposable encrypted image hosting.">
+        <title>one-time.nl</title>
+        <link rel="stylesheet" type="text/css" href="style.css" integrity="sha256-A+mp7vJCFyKqPxkZwzrpWBxt/l0xOy2XPv7UpsIzqxE="/>
+        <script type="text/javascript" src="js/header.js" integrity="sha256-Kk/bxAs2l23Z4a8Pf3240Kyhm0LXlYaD2V5wx8wKEfw="></script>
+        <script type="text/javascript" src="js/main_faq.js" integrity="sha256-y3UZXPLZVMRRHZLMX1RdKO/xLx0NCEgaoRBi9AEc8gE="></script>
+        <link rel="icon" type="image/png" href="favicon.png" integrity="sha256-HS1nRPHLiVK+T+k/2WwGVplMLFPnUDFsEOZpnwkZkN0="/>
+    </head>
+    <body>
+        <div id="header">
+            <div id="logo">
+                <a href="https://one-time.nl/">
+                    <img id="logo_svg" src="imgs/logo.svg">
+                </a>
+            </div>
+            <div id="faq">
+                <a href="https://one-time.nl/faq.html">
+                    <img id="faq_svg" src="imgs/faq.svg">
+                </a>
+            </div>
+        </div>
+        <div id="body_faq">
+            <b>What is this site?</b><br>
+            This is a disposable encrypted image hosting. When you upload an
+            image, your browser generates a random password, encrypts image
+            with this passwords and sends ciphertext to the server. Password
+            stored in the link to the image after '#' symbol, and it never
+            leaves your computer, if you aren't sharing a link with somebody,
+            of course.<br>
+            When you open the link the process is inverted: you download the
+            ciphertext from server, decrypt it with password extracted from the
+            link and see a picture. Take a good look (or save it), because it's
+            already deleted from the server!<br><br>
+            <b>Wait, are you not prohibiting saving of images?</b><br>
+            It's impossible. If I forbid a right-click of a mouse or make
+            something similar, you can always take a screenshot or even a photo
+            of the screen with an external camera.<br><br>
+            <b>What limitations are set on the site?</b><br>
+            The maximum file size: 10 MB.<br>
+            Allowed file types: jpg, png and gif.<br>
+            Also unviewed images will be deleted after 30 days.<br><br>
+            <b>Are images really deleted after first view? Do I have to trust
+                you?</b><br>
+            Yes, you have to trust me. But think about it: why in the world do
+            I need to store an encrypted junk which I can not even view? This
+            project is non-profit, there is no ads and other tracking shit, I
+            even do not ask for donations, so resourses are limited.<br>
+            Also no logs are recorded on the server, but don't trust me on word
+            and use TOR for additional security.<br>
+            And do not forget to delete EXIF from your photos, it can contain
+            a GPS photo location, a precise time, an unique ID number of the
+            device and many other sensitive information.<br><br>
+            <b>JS cryptography is bad.</b><br>
+            I know, but I do whatever I can to make it more secure. I use HSTS,
+            CSP and integrity check of all loaded JavaScripts and CSS. JS
+            code is kept is simple as possible, no external libs are used.
+            JavaScript code of all site combined is about 800 lines long.<br>
+            And believe me, I really don't want to store a possible illegal
+            stuff on my server in a plain form.<br><br>
+            <b>Where can I see the site code?</b><br>
+            The frontend is available for you in a browser inspector. Or you
+            can download the
+            <a href="https://github.com/grez911/one-time.nl">repository</a>
+            where is contained the frontend and backend code, and even the
+            server configuration files, so you can clone this site completely.
+            <br><br>
+            <b>How can I contact you?</b><br>
+            Drop me an email to <span id="email"></span>
+        </div>
+    </body>
+</html>
