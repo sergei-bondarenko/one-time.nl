@@ -5,7 +5,7 @@ function index()
     var counter = 0;
     history.replaceState("index", "");
 
-    document.getElementById("select_file").addEventListener("click",
+    document.getElementById("drop_zone").addEventListener("click",
     function()
     {
         document.getElementById("input_file").click();
