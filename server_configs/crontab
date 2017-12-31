@@ -1,2 +1,2 @@
-0 4 * * * /usr/bin/apt-get update && /usr/bin/yes | /usr/bin/apt-get full-upgrade && /sbin/shutdown -r now
+0 4 * * * bash -c "{ /usr/bin/apt-get update && /usr/bin/yes | /usr/bin/apt-get full-upgrade && /sbin/shutdown -r now ;} &>> /var/log/cron.log"
 0 3 * * * /usr/bin/wget -O /dev/null "https://one-time.nl/clean_up.php" 2>&1 > /dev/null
