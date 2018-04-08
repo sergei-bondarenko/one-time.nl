@@ -1,5 +1,5 @@
 SHELL=/bin/bash
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
-0 4 * * * /bin/bash -c "{ /bin/date; /bin/echo "----------------"; /usr/bin/apt-get update; /usr/bin/yes | /usr/bin/apt-get full-upgrade; /bin/echo; /sbin/shutdown -r now; } &>> /var/log/cron.log"
+0 4 * * 0 /bin/bash -c "{ /bin/date; /bin/echo "----------------"; /usr/bin/apt-get update; /usr/bin/yes | /usr/bin/apt-get full-upgrade; /bin/echo; /sbin/shutdown -r now; } &>> /var/log/cron.log"
 0 3 * * * /usr/bin/wget -O /dev/null "https://one-time.nl/clean_up.php" 2>&1 > /dev/null
