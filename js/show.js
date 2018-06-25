@@ -3,12 +3,11 @@
 function Show()
 {
     // Functions associated with downloading, decrypting and 
-    // displaying an image
+    // displaying a file
 
     this.encryptedFile = null;
     this.pass = null;
     this.filename = null;
-    this.base64File = null;
     var that = this;
 
     this.getFilename = function()
@@ -56,7 +55,7 @@ function Show()
             {
                 if (xhr.status === 404)
                 {
-                    page.error("The image doesn't exist.");
+                    page.error("The file doesn't exist.");
                     return;
                 }
 
@@ -96,7 +95,7 @@ function Show()
 
     this.download = function()
     {
-        // Downloads the image
+        // Downloads the file
         var that = this;
         page.progress(false);
  
@@ -120,7 +119,7 @@ function Show()
 
                 if (xhr.status === 404)
                 {
-                    page.error("The image doesn't exist.");
+                    page.error("The file doesn't exist.");
                     return;
                 }
 
@@ -143,6 +142,24 @@ function Show()
         }
     }
 
+    this.humanFileSize = function(size)
+    {
+        if (size > 1024*1024*1024)
+        {
+            return (size / (1024*1024*1024)).toFixed(1) + " GB";
+        }
+        else if (size > 1024*1024)
+        {
+            return (size / (1024*1024)).toFixed(1) + " MB";
+        }
+        else if (size > 1024)
+        {
+            return (size / 1024).toFixed(1) + " KB";
+        } else {
+            return size + " B";
+        }
+    }
+
     this.appendImage = function()
     {
         var that = this;
@@ -150,14 +167,49 @@ function Show()
         {
             if (result !== "error")
             {
-                that.base64File = result;
-                var elem = document.getElementById("image");
-                elem.src = that.base64File;
+                var type = result.split(";")[0];
+                if (type.includes("image"))
+                {
+                    var elem = document.getElementById("image_container");
+                    elem.src = result;
+                    elem.hidden = false;
+                }
+                else if (type.includes("video/mp4")
+                         || type.includes("video/webm")
+                         || type.includes("video/ogg"))
+                {
+                    document.getElementById("video_div").hidden = false;
+                    var elem = document.getElementById("video_container");
+                    elem.innerHTML = "<source src='" + result + "' type='"
+                                     + type.split(":")[1] + "'>";
+                    elem.hidden = false;
+                }
+                else if (type.includes("audio/mpeg")
+                         || type.includes("audio/wav")
+                         || type.includes("audio/ogg"))
+                {
+                    var elem = document.getElementById("audio_container");
+                    elem.innerHTML = "<source src='" + result + "' type='"
+                                     + type.split(":")[1] + "'>";
+                    elem.controls = true;
+                    elem.hidden = false;
+                }
+                else
+                {
+                    var elem = document.createElement("a");
+                    elem.href = result;
+                    elem.className = "link";
+                    elem.innerText = "Download " + type.split("/")[1]
+                        + " [" + that.humanFileSize(result.length) + "]";
+                    document.getElementById("file_container")
+                            .appendChild(elem);
+                    elem.hidden = false;
+                }
             }
             else
             {
                 page.error("Incorrect password. But bad for you — the "
-                    + "image is already destroyed.");
+                    + "file is already destroyed.");
                 return;
             }
         })

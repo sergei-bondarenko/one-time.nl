@@ -17,13 +17,6 @@ switch ($warn)
         return;
 }
 
-if (!in_array($type, $allowedTypes))
-{
-    http_response_code(415);
-    return;
-}
-
 $filename = gen_name($warn);
 file_put_contents("uploads/" . $filename, $file);
-
 echo $filename;

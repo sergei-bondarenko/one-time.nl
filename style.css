@@ -12,7 +12,7 @@ html, body
     min-width: 300px;
     background-image: linear-gradient(top, black, black 80%, transparent 80%, transparent 100%);
     background-image: -webkit-linear-gradient(top, black, black 80%, transparent 80%, transparent 100%);
-    content: url(imgs/logo_hover.svg) url(imgs/faq_hover.svg) url(imgs/copy_hover.svg);
+    content: url(imgs/logo_hover.svg?101) url(imgs/faq_hover.svg?101) url(imgs/copy_hover.svg?101);
 }
 
 #body_centered
@@ -144,18 +144,6 @@ html, body
     min-width: 300px;
 }
 
-#select_file
-{
-    font-family: Arial, Helvetica, sans-serif;
-    color: #000099;
-    cursor: pointer;
-}
-
-#select_file:hover
-{
-    color: #66CCFF;
-}
-
 #drag_file
 {
     font-family: Arial, Helvetica, sans-serif;
@@ -253,11 +241,23 @@ html, body
     background-color: #000000;
 }
 
-#image
+#image_container, #video_container
 {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
+}
+
+#audio_container
+{
+    height: 50%;
+}
+
+#file_container
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #body_faq
@@ -272,7 +272,26 @@ html, body
     min-width: 300px;
 }
 
+#video_div
+{
+    display: flex;
+    align-items: center;
+}
+
 .invisible
 {
     display: none;
+}
+
+.link
+{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000099;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.link:hover
+{
+    color: #66CCFF;
 }

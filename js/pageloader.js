@@ -28,7 +28,7 @@ function PageLoader()
 
         elem = document.createElement("img");
         elem.id = "drag_svg";
-        elem.src = "imgs/drag.svg";
+        elem.src = "imgs/drag.svg?101";
         document.getElementById("drop_zone_drag").appendChild(elem);
 
         elem = document.createElement("div");
@@ -38,12 +38,11 @@ function PageLoader()
         elem = document.createElement("input");
         elem.type = "file";
         elem.id = "input_file";
-        elem.accept = "image/*";
         document.getElementById("drop_zone_text").appendChild(elem);
 
         elem = document.createElement("span");
-        elem.id = "select_file";
-        elem.innerHTML = "Select an image";
+        elem.className = "link";
+        elem.innerHTML = "Select a file";
         document.getElementById("drop_zone_text").appendChild(elem);
 
         elem = document.createElement("span");
@@ -76,8 +75,8 @@ function PageLoader()
 
         elem = document.createElement("span");
         elem.id = "tooltip_text";
-        elem.innerHTML = "When someone opens the image he will be asked if he "
-            + "really wants to see (and destruct) this image.";
+        elem.innerHTML = "When someone opens the file he will be asked if he "
+            + "really wants to see (and destruct) this file.";
         document.getElementById("tooltip").appendChild(elem);
 
         index();
@@ -127,7 +126,7 @@ function PageLoader()
 
     this.link = function(url)
     {
-        // Page with link to uploaded image
+        // Page with link to uploaded file
         header();
         document.getElementById("body_centered").innerHTML = "";
 
@@ -142,7 +141,7 @@ function PageLoader()
 
         elem = document.createElement("img");
         elem.id = "copy_svg";
-        elem.src = "imgs/copy.svg";
+        elem.src = "imgs/copy.svg?101";
         document.getElementById("copy").appendChild(elem);        
 
         link(url);
@@ -159,7 +158,7 @@ function PageLoader()
         document.getElementById("body_centered").appendChild(elem);
         
         elem = document.createElement("div");
-        elem.innerHTML = "Show image?";
+        elem.innerHTML = "Show the file?";
         elem.id = "warn_text";
         document.getElementById("container_warn").appendChild(elem);
         
@@ -187,7 +186,7 @@ function PageLoader()
         document.getElementById("body_centered").appendChild(elem);
         
         elem = document.createElement("div");
-        elem.innerHTML = "OK. You can see the image some other time.";
+        elem.innerHTML = "OK. You can see the file some other time.";
         elem.id = "warn_text";
         document.getElementById("container_warn").appendChild(elem);
     }
@@ -212,12 +211,34 @@ function PageLoader()
 
     this.show = function()
     {
-        // Show the image
+        // Show the file
         header();
         document.getElementById("body_show").innerHTML = "";
         
         var elem = document.createElement("img");
-        elem.id = "image";
+        elem.id = "image_container";
+        elem.hidden = true;
+        document.getElementById("body_show").appendChild(elem);
+
+        var elem = document.createElement("div");
+        elem.id = "file_container";
+        elem.hidden = true;
+        document.getElementById("body_show").appendChild(elem);
+
+        var elem = document.createElement("div");
+        elem.id = "video_div";
+        elem.hidden = true;
+        document.getElementById("body_show").appendChild(elem);
+
+        var elem = document.createElement("video");
+        elem.id = "video_container";
+        elem.controls = true;
+        elem.hidden = true;
+        document.getElementById("video_div").appendChild(elem);
+
+        var elem = document.createElement("audio");
+        elem.id = "audio_container";
+        elem.hidden = true;
         document.getElementById("body_show").appendChild(elem);
     }
 }

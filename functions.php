@@ -1,7 +1,4 @@
 <?php
-$allowedTypes = ["image/gif", "image/jpeg", "image/jpg",
-                 "image/pjpeg", "image/x-png", "image/png"];
-
 function gen_string($warn)
 {
     // To distinguish files with and without warning I use the following

@@ -3,7 +3,6 @@
 function Upload(file, warning)
 {
     this.file = file;
-    this.type = this.file.type;
     this.size = this.file.size;
     this.base64File = null;
     this.encryptedFile = null;
@@ -15,18 +14,9 @@ Upload.prototype.start = function()
 {
     var that = this;
 
-    var allowedTypes = ["image/gif", "image/jpeg", "image/jpg",
-                        "image/pjpeg", "image/x-png", "image/png"];
-
-    if ( ! allowedTypes.includes(this.type) )
+    if (this.size > 100000000)
     {
-        page.error("You can upload only jpeg, png or gif files.");
-        return;
-    }
-
-    if (this.size > 10000000)
-    {
-        page.error("File size must be smaller than 10 MB.");
+        page.error("File size must be smaller than 100 MB.");
         return;
     }
 
@@ -70,8 +60,7 @@ Upload.prototype.upload = function()
         page.index();
     });
 
-    xhr.open("POST", "/save.php?warn=" + this.warning + "&type=" + this.type,
-        true);
+    xhr.open("POST", "/save.php?warn=" + this.warning, true);
     xhr.send(that.encryptedFile);
     xhr.onreadystatechange = function ()
     {
@@ -81,11 +70,6 @@ Upload.prototype.upload = function()
             {
                 var data = xhr.responseText;
                 page.link(data + "#" + that.pass);
-            }
-            if (xhr.status === 415)
-            {
-                page.error("You can upload only jpeg, png or gif files.");
-                return;
             }
             if (xhr.status === 400)
             {
