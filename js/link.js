@@ -24,14 +24,14 @@ function link(url)
     function()
     {
     document.getElementById("copy").style.backgroundColor = "#000000";
-        document.getElementById("copy_svg").src = "imgs/copy_hover.svg?101";
+        document.getElementById("copy_svg").src = "imgs/copy_hover.svg?102";
     }, true);
 
     document.getElementById("copy").addEventListener("mouseout",
     function()
     {
     document.getElementById("copy").style.backgroundColor = "#FFFFFF";
-        document.getElementById("copy_svg").src = "imgs/copy.svg?101";
+        document.getElementById("copy_svg").src = "imgs/copy.svg?102";
     }, true);
 }
 

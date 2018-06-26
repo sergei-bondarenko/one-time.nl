@@ -12,7 +12,7 @@ html, body
     min-width: 300px;
     background-image: linear-gradient(top, black, black 80%, transparent 80%, transparent 100%);
     background-image: -webkit-linear-gradient(top, black, black 80%, transparent 80%, transparent 100%);
-    content: url(imgs/logo_hover.svg?101) url(imgs/faq_hover.svg?101) url(imgs/copy_hover.svg?101);
+    content: url(imgs/logo_hover.svg?102) url(imgs/faq_hover.svg?102) url(imgs/copy_hover.svg?102);
 }
 
 #body_centered
@@ -258,6 +258,14 @@ html, body
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#file_note
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    color: #555555;
+    margin-top: 8px;
 }
 
 #body_faq

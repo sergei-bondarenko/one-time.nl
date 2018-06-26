@@ -28,7 +28,7 @@ function PageLoader()
 
         elem = document.createElement("img");
         elem.id = "drag_svg";
-        elem.src = "imgs/drag.svg?101";
+        elem.src = "imgs/drag.svg?102";
         document.getElementById("drop_zone_drag").appendChild(elem);
 
         elem = document.createElement("div");
@@ -141,7 +141,7 @@ function PageLoader()
 
         elem = document.createElement("img");
         elem.id = "copy_svg";
-        elem.src = "imgs/copy.svg?101";
+        elem.src = "imgs/copy.svg?102";
         document.getElementById("copy").appendChild(elem);        
 
         link(url);
@@ -222,8 +222,21 @@ function PageLoader()
 
         var elem = document.createElement("div");
         elem.id = "file_container";
-        elem.hidden = true;
         document.getElementById("body_show").appendChild(elem);
+
+        var elem = document.createElement("div");
+        elem.id = "file_div";
+        elem.hidden = true;
+        document.getElementById("file_container").appendChild(elem);
+
+        var elem = document.createElement("div");
+        elem.id = "file_link";
+        document.getElementById("file_div").appendChild(elem);
+
+        var elem = document.createElement("div");
+        elem.id = "file_note";
+        elem.innerText = "* Right click -> Save link as..."
+        document.getElementById("file_div").appendChild(elem);
 
         var elem = document.createElement("div");
         elem.id = "video_div";

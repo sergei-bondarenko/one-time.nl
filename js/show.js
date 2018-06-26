@@ -200,10 +200,9 @@ function Show()
                     elem.href = result;
                     elem.className = "link";
                     elem.innerText = "Download " + type.split("/")[1]
-                        + " [" + that.humanFileSize(result.length) + "]";
-                    document.getElementById("file_container")
-                            .appendChild(elem);
-                    elem.hidden = false;
+                        + " [" + that.humanFileSize(result.length) + "]*";
+                    document.getElementById("file_link").appendChild(elem);
+                    document.getElementById("file_div").hidden = false;
                 }
             }
             else
