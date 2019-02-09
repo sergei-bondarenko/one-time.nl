@@ -2,12 +2,12 @@
 
 function compose_email_address()
 {
-    var email = 'grez<span class="invisible">gibber1</span>';
+    var email = 'sergei<span class="invisible">gibber1</span>';
     email += '<!--gibber2-->@';
     email += '<span class="invisible">gibber3</span>';
-    email += 'firema<span class="invisible">gibber4<span class="invisible">';
+    email += 'bondare<span class="invisible">gibber4<span class="invisible">';
     email += 'gibber5</span></span>';
-    email += 'il.cc';
+    email += 'nko.xyz';
     document.getElementById("email").innerHTML = email;
 }
 
